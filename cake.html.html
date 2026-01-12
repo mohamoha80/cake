@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Pink Bakery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pink': {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                            800: '#9d174d',
+                            900: '#831843',
+                        }
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                        'dancing': ['Dancing Script', 'cursive']
+                    },
+                    animation: {
+                        'slide-in': 'slideIn 0.5s ease-out',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        slideIn: {
+                            '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scroll-container {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #f472b6 transparent;
+        }
+        .scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .scroll-container::-webkit-scrollbar-track {
+            background: #fce7f3;
+            border-radius: 10px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #f472b6;
+            border-radius: 10px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #db2777;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.1), 0 10px 10px -5px rgba(236, 72, 153, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-pink-50 font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <!-- LOGO PLACEHOLDER - REPLACE WITH YOUR LOGO -->
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <!-- Replace the icon with your logo image -->
+                        <!-- Option 1: Use an image tag -->
+                        <img src="resources/cake logo.png" alt="Sweet Pink Bakery Logo" class="w-full h-full object-contain"> 
+                        
+                        <!-- Option 2: Keep the icon if you don't have a logo -->
+                        <div class="w-10 h-10 bg-gradient-to-r from-pink-400 to-pink-600 rounded-full flex items-center justify-center">
+                      
+                        </div>
+                    </div>
+                    <h1 class="text-2xl font-bold text-pink-700 font-dancing">Sweet Pink Bakery</h1>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:block w-1/3">
+                    <form class="max-w-md mx-auto">
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-pink-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                                </svg>
+                            </div>
+                            <input type="search" id="search" class="block w-full p-3 pl-10 bg-pink-50 border border-pink-200 text-pink-900 text-sm rounded-2xl focus:ring-pink-500 focus:border-pink-500 placeholder-pink-400" placeholder="Search for cakes, pastries..." required />
+                            <button type="button" class="absolute right-2.5 bottom-2.5 text-white bg-pink-500 hover:bg-pink-600 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg text-sm px-3 py-1 transition duration-200">Search</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="hidden md:block text-pink-700 hover:text-pink-500 transition duration-200">Home</a>
+                    <a href="#" class="hidden md:block text-pink-700 hover:text-pink-500 transition duration-200">Cakes</a>
+                    <a href="#" class="hidden md:block text-pink-700 hover:text-pink-500 transition duration-200">About</a>
+                    <a href="#" class="hidden md:block text-pink-700 hover:text-pink-500 transition duration-200">Contact</a>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-2 rounded-full bg-pink-100 text-pink-700 hover:bg-pink-200 transition duration-200">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                        <button class="md:hidden p-2 rounded-full bg-pink-100 text-pink-700 hover:bg-pink-200 transition duration-200">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Search -->
+            <div class="mt-4 md:hidden">
+                <form>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-pink-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+                            </svg>
+                        </div>
+                        <input type="search" class="block w-full p-3 pl-10 bg-pink-50 border border-pink-200 text-pink-900 text-sm rounded-2xl focus:ring-pink-500 focus:border-pink-500 placeholder-pink-400" placeholder="Search for cakes..." required />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-pink-100 to-pink-200 py-12 md:py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate-slide-in">
+                    <h2 class="text-4xl md:text-5xl font-bold text-pink-800 mb-4 font-dancing">Delicious Cakes Made with Love</h2>
+                    <p class="text-pink-700 mb-6 text-lg">Discover our heavenly collection of custom cakes, pastries, and desserts for every special occasion.</p>
+                    <div class="flex space-x-4">
+                        <button class="bg-pink-600 hover:bg-pink-700 text-white font-medium py-3 px-6 rounded-full shadow-lg transition duration-200 transform hover:scale-105">
+                            Order Now
+                        </button>
+                        <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-3 px-6 rounded-full transition duration-200">
+                            View Collection
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative animate-float">
+                        <!-- HERO IMAGE PLACEHOLDER - REPLACE WITH YOUR CAKE IMAGE -->
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full shadow-2xl overflow-hidden">
+                            <!-- Replace with your hero cake image -->
+                            <div class="w-full h-full bg-gradient-to-br from-pink-300 to-pink-500 flex items-center justify-center">
+                                <img src="resources/cake logo.png" alt="Beautiful Cake" class="w-full h-full object-cover"> 
+                           
+                            </div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center">
+                            <span class="text-pink-600 font-bold text-xl">25%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cakes Section -->
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-pink-800 mb-4 font-dancing">Our Featured Cakes</h2>
+                <p class="text-pink-600 max-w-2xl mx-auto">Handcrafted with the finest ingredients and a touch of magic</p>
+            </div>
+            
+            <!-- Scrollable Cake Cards -->
+            <div class="relative">
+                <div class="scroll-container overflow-x-auto pb-6 flex space-x-6 px-2" id="cake-scroll">
+                    <!-- Cake Card 1 -->
+                    <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex-shrink-0">
+                        <div class="h-48 bg-gradient-to-r from-pink-200 to-pink-300 flex items-center justify-center overflow-hidden">
+                            <!-- IMAGE PLACEHOLDER 1 - REPLACE WITH YOUR CAKE IMAGE -->
+                        <img src="resources/strawberry dream cake.png" alt="Strawberry Dream Cake" class="w-full h-full object-cover"> 
+                     
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pink-800 mb-2">Strawberry Dream</h3>
+                            <p class="text-pink-600 mb-4">Layers of vanilla sponge, fresh strawberries, and cream cheese frosting.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-pink-700">$32.99</span>
+                                <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-5 rounded-full transition duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cake Card 2 -->
+                    <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex-shrink-0">
+                        <div class="h-48 bg-gradient-to-r from-pink-300 to-pink-400 flex items-center justify-center overflow-hidden">
+                            <!-- IMAGE PLACEHOLDER 2 - REPLACE WITH YOUR CAKE IMAGE -->
+                            <img src="resources/Chocolate Delight cake.png" alt="Chocolate Delight Cake" class="w-full h-full object-cover"> 
+                            
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pink-800 mb-2">Chocolate Delight</h3>
+                            <p class="text-pink-600 mb-4">Rich dark chocolate cake with chocolate ganache and chocolate shavings.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-pink-700">$36.99</span>
+                                <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-5 rounded-full transition duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cake Card 3 -->
+                    <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex-shrink-0">
+                        <div class="h-48 bg-gradient-to-r from-pink-400 to-pink-500 flex items-center justify-center overflow-hidden">
+                            <!-- IMAGE PLACEHOLDER 3 - REPLACE WITH YOUR CAKE IMAGE -->
+                            <img src="resources/Vanilla Berry Bliss cake.png" alt="Vanilla Berry Bliss Cake" class="w-full h-full object-cover"> 
+                          
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pink-800 mb-2">Vanilla Berry Bliss</h3>
+                            <p class="text-pink-600 mb-4">Vanilla bean cake with mixed berry compote and vanilla buttercream.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-pink-700">$29.99</span>
+                                <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-5 rounded-full transition duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cake Card 4 -->
+                    <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex-shrink-0">
+                        <div class="h-48 bg-gradient-to-r from-pink-500 to-pink-600 flex items-center justify-center overflow-hidden">
+                            <!-- IMAGE PLACEHOLDER 4 - REPLACE WITH YOUR CAKE IMAGE -->
+                            <img src="resources/Red Velvet Supreme cake.png" alt="Red Velvet Supreme Cake" class="w-full h-full object-cover"> 
+                            
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pink-800 mb-2">Red Velvet Supreme</h3>
+                            <p class="text-pink-600 mb-4">Classic red velvet cake with cream cheese frosting and velvet crumbs.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-pink-700">$39.99</span>
+                                <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-5 rounded-full transition duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cake Card 5 -->
+                    <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex-shrink-0">
+                        <div class="h-48 bg-gradient-to-r from-pink-600 to-pink-700 flex items-center justify-center overflow-hidden">
+                            <!-- IMAGE PLACEHOLDER 5 - REPLACE WITH YOUR CAKE IMAGE -->
+                             <img src="resources/Lemon Zest Cake.png" alt="Lemon Zest Cake" class="w-full h-full object-cover"> 
+                        
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pink-800 mb-2">Lemon Zest Cake</h3>
+                            <p class="text-pink-600 mb-4">Zesty lemon cake with lemon curd filling and lemon glaze topping.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-pink-700">$28.99</span>
+                                <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-5 rounded-full transition duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Cake Card 6 (ADD MORE CARDS AS NEEDED) -->
+                    <div class="min-w-[280px] md:min-w-[320px] bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex-shrink-0">
+                        <div class="h-48 bg-gradient-to-r from-pink-700 to-pink-800 flex items-center justify-center overflow-hidden">
+                            <!-- IMAGE PLACEHOLDER 6 - REPLACE WITH YOUR CAKE IMAGE -->
+                            <img src="resources/Caramel Swirl cake.png" alt="Caramel Swirl Cake" class="w-full h-full object-cover"> 
+                         
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-pink-800 mb-2">Caramel Swirl</h3>
+                            <p class="text-pink-600 mb-4">Moist caramel cake with caramel buttercream and caramel drizzle.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-pink-700">$34.99</span>
+                                <button class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-5 rounded-full transition duration-200">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scroll Buttons -->
+                <button id="scroll-left" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white text-pink-700 w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-pink-50 transition duration-200">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="scroll-right" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white text-pink-700 w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-pink-50 transition duration-200">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button class="border-2 border-pink-600 text-pink-600 hover:bg-pink-600 hover:text-white font-medium py-3 px-8 rounded-full transition duration-200">
+                    View All Cakes
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (from uiverse.io) -->
+    <footer class="bg-gradient-to-r from-pink-800 to-pink-900 text-white pt-12 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <!-- FOOTER LOGO PLACEHOLDER - REPLACE WITH YOUR LOGO -->
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                            <!-- Replace with your logo image -->
+                            <img src="resources/cake logo.png" alt="Sweet Pink Bakery Logo" class="w-full h-full object-contain p-1"> 
+                        
+                        </div>
+                        <h2 class="text-3xl font-bold font-dancing">Sweet Pink Bakery</h2>
+                    </div>
+                    <p class="text-pink-200 max-w-md">Creating sweet memories since 2010. Our cakes are baked with love and the finest ingredients.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="w-12 h-12 bg-pink-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition duration-200">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-pink-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition duration-200">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-pink-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition duration-200">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-pink-700 hover:bg-pink-600 rounded-full flex items-center justify-center transition duration-200">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Home</a></li>
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Our Cakes</a></li>
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Custom Orders</a></li>
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Special Offers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Birthday Cakes</a></li>
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Wedding Cakes</a></li>
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Cupcakes</a></li>
+                        <li><a href="#" class="text-pink-200 hover:text-white transition duration-200">Pastries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-map-marker-alt text-pink-300"></i>
+                            <span class="text-pink-200">123 Sweet Street, Dessert City</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-phone text-pink-300"></i>
+                            <span class="text-pink-200">(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-envelope text-pink-300"></i>
+                            <span class="text-pink-200">hello@sweetpinkbakery.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-pink-200 mb-4">Subscribe to get updates on new arrivals and special offers.</p>
+                    <div class="flex">
+                        <input type="email" class="flex-grow p-3 rounded-l-lg text-pink-900 placeholder-pink-400 focus:outline-none" placeholder="Your email">
+                        <button class="bg-pink-600 hover:bg-pink-500 text-white font-medium py-3 px-4 rounded-r-lg transition duration-200">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-pink-700 pt-8 text-center">
+                <p class="text-pink-300">© 2023 Sweet Pink Bakery. All rights reserved. | Designed with <i class="fas fa-heart text-pink-400"></i> for cake lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll functionality for cake cards
+        document.getElementById('scroll-left').addEventListener('click', function() {
+            document.getElementById('cake-scroll').scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        });
+        
+        document.getElementById('scroll-right').addEventListener('click', function() {
+            document.getElementById('cake-scroll').scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Search functionality
+        document.querySelectorAll('button[type="button"]').forEach(button => {
+            if (button.textContent.includes('Search')) {
+                button.addEventListener('click', function() {
+                    const searchInput = this.closest('form').querySelector('input[type="search"]');
+                    if (searchInput.value.trim()) {
+                        alert(`Searching for: "${searchInput.value}"`);
+                        // In a real application, you would submit the form or make an API call here
+                    } else {
+                        alert('Please enter a search term');
+                    }
+                });
+            }
+        });
+        
+        // Add to cart buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Add to Cart')) {
+                button.addEventListener('click', function() {
+                    const cakeName = this.closest('.min-w-\\[280px\\]').querySelector('h3').textContent;
+                    const price = this.closest('.min-w-\\[280px\\]').querySelector('span.text-2xl').textContent;
+                    
+                    // Add animation
+                    this.innerHTML = '<i class="fas fa-check"></i> Added';
+                    this.classList.remove('bg-pink-500', 'hover:bg-pink-600');
+                    this.classList.add('bg-green-500', 'hover:bg-green-600');
+                    
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        this.innerHTML = 'Add to Cart';
+                        this.classList.remove('bg-green-500', 'hover:bg-green-600');
+                        this.classList.add('bg-pink-500', 'hover:bg-pink-600');
+                    }, 2000);
+                    
+                    console.log(`Added ${cakeName} (${price}) to cart`);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
